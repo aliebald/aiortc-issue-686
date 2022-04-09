@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebRTC Issue #686 Example</title>
+    <style>
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+        }
+
+        video {
+            width: 100%;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .videos {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding-top: 10px;
+        }
+
+        .video-wrapper {
+            text-align: center;
+            border: 1px dotted gray;
+            border-radius: 10px;
+            padding: 3px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="buttons">
+        <label for="useIssueWorkaround">Use Remapping Issue Workaround</label>
+        <input type="checkbox" id="useIssueWorkaround" name="useIssueWorkaround" checked>
+        <button id="startBtn">Start</button>
+        <button id="stopBtn" disabled>Stop</button>
+        <button id="renegotiateBtn" disabled>Renegotiate</button>
+        <button id="requestRenegotiationBtn" disabled>Request Renegotiation from Server</button>
+    </div>
+
+    <div class="videos">
+        <div class="video-wrapper">
+            <p>Local Stream</p>
+            <video id="localVideo" autoplay="true" playsinline="true"></video>
+        </div>
+        <div class="video-wrapper">
+            <p>Remote Stream</p>
+            <video id="remoteVideo" autoplay="true" playsinline="true"></video>
+        </div>
+    </div>
+
+    <h2>State</h2>
+    <p>
+        ICE gathering state: <span id="iceGatheringLog"></span>
+    </p>
+    <p>
+        ICE connection state: <span id="iceConnectionLog"></span>
+    </p>
+    <p>
+        Signaling state: <span id="signalingLog"></span>
+    </p>
+    <p>
+        Ping RTT: <span id="pingRtt"></span>
+    </p>
+
+    <h2>Data Channel Messages</h2>
+    <pre id="dataChannelLog" style="height: 200px;"></pre>
+
+    <script src="client.js"></script>
+</body>
+
+</html>
